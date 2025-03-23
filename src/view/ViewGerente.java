@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import rh.Endereco;
 import rh.Gerente;

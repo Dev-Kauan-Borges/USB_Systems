@@ -1,25 +1,25 @@
-package View;
+package view;
 
 import rh.Endereco;
-import rh.Programador;
+import rh.Vendedor;
 
 import java.util.Scanner;
 
-public class ViewProgramador {
+public class ViewVendedor {
     private static void exibirMenu(){
         System.out.println("Selecione uma opção: ");
         System.out.println("1 - Cadastrar programador/Alterar programador");
         System.out.println("2 - Exibir Gerente");
         System.out.println("0 - Sair");
     }
-    private static Programador cadastrarProgramador() {
-        Programador programador = new Programador();
+    private static Vendedor cadastrarVendedor() {
+        Vendedor vendedor = new Vendedor();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite o nome do programador: ");
-        programador.setNome(sc.nextLine());
-        System.out.println("Digite o cpf do programador: ");
-        programador.setCpf(sc.nextLine());
-        System.out.println("Digite o endereco do programador:");
+        System.out.println("Digite o nome do vendedor: ");
+        vendedor.setNome(sc.nextLine());
+        System.out.println("Digite o cpf do vendedor: ");
+        vendedor.setCpf(sc.nextLine());
+        System.out.println("Digite o endereco do vendedor:");
         System.out.println("Logradouro:");
         String logradouro = sc.nextLine();
         System.out.println("Numero:");
@@ -32,17 +32,17 @@ public class ViewProgramador {
         String cidade = sc.nextLine();
         System.out.println("Estado:");
         String estado = sc.nextLine();
-        programador.setEndereco(new Endereco(logradouro,numero,complemento,cep,cidade,estado));
-        System.out.println("Informe o salario fixo do programador: ");
-        programador.setSalarioFixo(sc.nextDouble());
-        System.out.println("Informe o ramal do programador: ");
-        programador.setRamal(sc.nextInt());
-        return programador;
+        vendedor.setEndereco(new Endereco(logradouro,numero,complemento,cep,cidade,estado));
+        System.out.println("Informe o salario fixo do vendedor: ");
+        vendedor.setSalarioFixo(sc.nextDouble());
+        System.out.println("Informe o valor de vendas semestral: ");
+        vendedor.setVendasSemestral(sc.nextDouble());
+        return vendedor;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Programador programador = null;
+        Vendedor vendedor = null;
         int op;
 
         do {
@@ -50,13 +50,13 @@ public class ViewProgramador {
             op = sc.nextInt();
             switch (op) {
                 case 1:
-                    programador = cadastrarProgramador();
+                    vendedor = cadastrarVendedor();
                     break;
                 case 2:
-                    if (programador != null) {
-                        System.out.println(programador.getDetalhamento());}
+                    if (vendedor != null) {
+                        System.out.println(vendedor.getDetalhamento());}
                     else
-                    {System.out.println("Nenhum programador encontrado");}
+                    {System.out.println("Nenhum vendedor encontrado");}
                     break;
                 case 0:
                     System.out.println("Finalizando");
